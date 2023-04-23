@@ -1,7 +1,15 @@
 import json
+import os
 from ibm_watson import NaturalLanguageUnderstandingV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_watson.natural_language_understanding_v1 import Features, EntitiesOptions, KeywordsOptions
+from dotenv import load_dotenv
+
+load_dotenv()
+
+apikey = os.environ.get("apikey")
+url = os.environ.get("url")
+
 
 authenticator = IAMAuthenticator(apikey)
 natural_language_understanding = NaturalLanguageUnderstandingV1(
