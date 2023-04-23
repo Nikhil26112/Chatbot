@@ -18,7 +18,14 @@
             <input type="text" name="message">
             <hr>
             <button>send message</button>
+            <hr>
+            {% if result %}
             {{result}}
+            {% endif %}
+            <hr>
+            {% if emotion %}
+            {{emotion}}
+            {% endif %}
         </form>
     </div>
 </body>
