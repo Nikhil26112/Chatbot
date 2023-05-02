@@ -54,28 +54,28 @@ def get_response(intents_list, intents_json):
             break
     return result
 
-# print("GO! Bot is running!")
+print("GO! Bot is running!")
 
-# while True:
-#     message = input("")
-#     ints = predict_class(message)
-#     res = get_response(ints, intents)
-#     print(res)
-
-def init():
-    global model_path
-    model_path = os.path.join(os.getenv("AZUREML_MODEL_DIR"), "chatbotmodel.h5")
-    print(model_path)
-
-@rawhttp
-def run(request):
-    if request.method != 'POST':
-        return AMLResponse(f"Unsupported verb: {request.method}", 400)
-
-    # image_data = request.files['image']
+while True:
     message = input("")
     ints = predict_class(message)
-    preds = get_response(ints, intents)
-    # preds = model.predict(image_data)
+    res = get_response(ints, intents)
+    print(res)
 
-    return AMLResponse(json.dumps({"preds": preds.tolist()}), 200)
+# def init():
+#     global model_path
+#     model_path = os.path.join(os.getenv("AZUREML_MODEL_DIR"), "chatbotmodel.h5")
+#     print(model_path)
+
+# @rawhttp
+# def run(request):
+#     if request.method != 'POST':
+#         return AMLResponse(f"Unsupported verb: {request.method}", 400)
+
+#     # image_data = request.files['image']
+#     message = input("")
+#     ints = predict_class(message)
+#     preds = get_response(ints, intents)
+#     # preds = model.predict(image_data)
+
+#     return AMLResponse(json.dumps({"preds": preds.tolist()}), 200)
